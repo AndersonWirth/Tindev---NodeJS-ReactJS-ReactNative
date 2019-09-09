@@ -7,11 +7,11 @@ import like from '../assets/like.svg';
 import api from '../services/api';
 
 
-export default function Main( match ) {
+export default function Main(match) {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
-        async function loadUsers(){
+        async function loadUsers() {
             const response = await api.get('/devs', {
                 headers: {
                     user: match.match.params.id,
@@ -23,15 +23,14 @@ export default function Main( match ) {
 
         loadUsers();
     }, [match.match.params.id])
-    
+
     return (
         <div className="main-container">
             <img src={logo} alt="Tindev" />
             <ul>
                 {users.map(user => (
                     <li key={user._id}>
-                        <img src={user.avatar} alt={user.name}/>
-                        <img src={user.avatar} alt={user.name}/>
+                        <img src={user.avatar} alt={user.name} />
                         <footer>
                             <strong>{user.name}</strong>
                             <p>{user.bio}</p>
@@ -39,10 +38,10 @@ export default function Main( match ) {
 
                         <div className="buttons">
                             <button type="button">
-                                <img src={dislike} alt="Dislike"/>
+                                <img src={dislike} alt="Dislike" />
                             </button>
                             <button type="button">
-                                <img src={like} alt="Like"/>
+                                <img src={like} alt="Like" />
                             </button>
                         </div>
                     </li>
