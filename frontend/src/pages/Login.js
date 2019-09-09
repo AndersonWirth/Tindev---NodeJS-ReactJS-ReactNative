@@ -12,12 +12,12 @@ export default function Login( { history } ) {
         e.preventDefault();
 
         const response = await api.post('/devs', {
-            username,
+            username: username,
         });
-console.log(username);
-        console.log(response);
 
-        history.push('/main');
+        const { _id } = response.data;
+
+        history.push(`/dev/${_id}`);
     }
 
     return (
