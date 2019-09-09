@@ -31,6 +31,7 @@ export default function Main( match ) {
                 {users.map(user => (
                     <li key={user._id}>
                         <img src={user.avatar} alt={user.name}/>
+                        <img src={user.avatar} alt={user.name}/>
                         <footer>
                             <strong>{user.name}</strong>
                             <p>{user.bio}</p>
